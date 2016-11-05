@@ -55,25 +55,25 @@ If you take a look inside ```.docker/development.dockerfile``` you will see the 
 	ENTRYPOINT ["nodemon", "index.js"]
 ```
 
-## FROM node:latest
+#### FROM node:latest
 This is instructing docker to fetch the latest official ```Node JS``` image. This image has everything needed to run a NodeJS application.
 
-## MAINTAINER Matt Finucane
+#### MAINTAINER Matt Finucane
 Your name or company name can go in here.
 
-## ENV CONTAINER_PATH
+#### ENV CONTAINER_PATH
 Setting an environment variable for where your applcation will sit inside the container (virtual machine).
 
-## WORKDIR $CONTAINER_PATH
+#### WORKDIR $CONTAINER_PATH
 Change to the directory set by the environment variable $CONTAINER_PATH - in this case ```/opt```
 
-## RUN npm install -g nodemon && npm install
+#### RUN npm install -g nodemon && npm install
 This will install all the Node modules needed to get the app running
 
-## EXPOSE $PORT
+#### EXPOSE $PORT
 This will expose port 3000 (which the Node application is listening on) to the host operating system.
 
-## ENTRYPOINT ["nodemon", "index.js"]
+#### ENTRYPOINT ["nodemon", "index.js"]
 This will start the application using ```nodemon```. Nodemon will restart node when a file is changed - useful for development.
 
 If you take a look inside the ```docker-compose.yml``` file you will see the following:
@@ -95,24 +95,24 @@ If you take a look inside the ```docker-compose.yml``` file you will see the fol
 	      - "80:3000"
 ```
 
-## services:
+### services:
 This defines the containers we are going to be running. In this case, we have only one but we will have more than that in the future. We could have another service for ```mongo``` which defines a container than runs an instance of MongoDB.
 
-## build:
+#### build:
 
-### context:
+#### context:
 This is set to the current working directory ```.```, which should be used as the basis for locating other files needed.
 
-### dockerfile: 
+#### dockerfile: 
 The location of the docker file needed for the Node JS application relative to the current context.
 
-### volumes: 
+#### volumes: 
 This maps your current working directory to the ```/opt``` directory inside the running container. This means that any changes to files on your local file system will be reflected in the container immediately. This acts like a *symlink* of sorts.
 
-### environment:
+#### environment:
 Set any environment variables here that are needed by the node application.
 
-### ports:
+#### ports:
 This links port 80 on the host machine to the exposed port 3000 on the container. This means that you can visit ```http://192.168.99.100``` and your node application will appear (assuming the container is running).
 
 ***Note***: use the command ```docker-machine ip``` to verify that ```192.168.99.100``` is the correct IP address for your Docker installation.
