@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  node:
+    container_name: nodeapp
+    build:
+      context: .
+      dockerfile: .docker/development.dockerfile
+    volumes:
+      - .:/opt
+    environment:
+      - PORT=3000
+    ports: 
+      - "80:3000"
