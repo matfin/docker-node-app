@@ -8,6 +8,8 @@ Docker is a container management system that makes it easy to create and run ins
 
 You will need a running instance of Docker on your development machine. Go to the [Docker Docs](https://docs.docker.com/) for installation instructions.
 
+It is recommended to have at least ```Docker v1.1``` and ```Docker Compose v1.6```. If you are installing Docker for MacOS or Windows, the latest versions should be installed. If you are running Linux, [refer to these instructions](https://docs.docker.com/compose/install/).
+
 ## What problem will it solve for me?
 Your task is to create an application (in this case NodeJS) and you need the infrastructure to support it.
 
