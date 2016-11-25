@@ -52,8 +52,6 @@ If you take a look inside ```.docker/development.dockerfile``` you will see the 
 
 	RUN npm install -g nodemon && npm install
 
-	EXPOSE $PORT
-
 	ENTRYPOINT ["nodemon", "index.js"]
 ```
 
