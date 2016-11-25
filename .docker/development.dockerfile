@@ -1,17 +1,11 @@
 FROM node:latest
 
-MAINTAINER Matt Finucane
+MAINTAINER matfin@gmail.com
 
 ENV CONTAINER_PATH /opt
 
 WORKDIR $CONTAINER_PATH
 
-# COPY index.js .
-
-# COPY package.json .
-
 RUN npm install -g nodemon && npm install
-
-EXPOSE $PORT
 
 ENTRYPOINT ["nodemon", "index.js"]
